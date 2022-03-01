@@ -1,6 +1,7 @@
-const searchMobile = () => {
+const searchGazette = () => {
     const searchField = document.getElementById('search-field');
-    const searchText = searchField.value;
+    const UnknownSearchText = searchField.value;
+    const searchText = UnknownSearchText.toLowerCase();
     // clear field
     searchField.value = '';
 
@@ -14,7 +15,9 @@ const displaySearchResult = phones => {
     const searchResult = document.getElementById('search-result');
     // clear previous search result
     searchResult.textContent ="";
-    phones.forEach(phone => {
+    const display20Phone = phones.splice(0, 20);
+    console.log(display20Phone);
+    display20Phone.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -25,7 +28,7 @@ const displaySearchResult = phones => {
                   <h6>${phone.brand}</h6>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
-                <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-outline-light bg-primary w-25 mx-auto mb-4">Details</button>
+                <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-outline-light bg-danger w-25 mx-auto mb-4">Details</button>
             </div>
             `;
             searchResult.appendChild(div);
