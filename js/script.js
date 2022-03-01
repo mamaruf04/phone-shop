@@ -12,10 +12,9 @@ const searchMobile = () => {
 
 const displaySearchResult = phones => {
     const searchResult = document.getElementById('search-result');
+    // clear previous search result
     searchResult.textContent ="";
     phones.forEach(phone => {
-        // console.log(phone);
-        // clear previous search result
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -51,6 +50,7 @@ const displayPhoneDetails = phoneId => {
         releaseDate = `${phoneId.releaseDate}`
     }
     const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = "";
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
