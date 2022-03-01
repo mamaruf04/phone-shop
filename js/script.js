@@ -43,6 +43,13 @@ const loadPhoneDetails = phoneId => {
 
 const displayPhoneDetails = phoneId => {
     console.log(phoneId);
+    let releaseDate = "";
+    if(`${phoneId.releaseDate}` === ""){
+        releaseDate = "Relese date not decleared yet.";
+    }
+    else{
+        releaseDate = `${phoneId.releaseDate}`
+    }
     const phoneDetails = document.getElementById('phone-details');
     const div = document.createElement('div');
     div.classList.add('card');
@@ -52,13 +59,21 @@ const displayPhoneDetails = phoneId => {
         <div class="card-body">
             <h5 class="card-title fw-bold text-center">${phoneId.name}</h5>
             <h6 class="card-title text-center">${phoneId.brand}</h6>
-            <h6 class="card-title text-center">ReleaseDate: ${phoneId.releaseDate='Relese date not decleared yet.'}</h6>
+            <h6 class="card-title text-center"><span class="fw-bold">ReleaseDate: </span> ${releaseDate}</h6>
+            <h6 class="text-center my-4 fw-bold">MainFeatures</h6>
             <p><span class="fw-bold">ChipSet:</span> ${phoneId.mainFeatures.chipSet}</p>
             <p><span class="fw-bold">Storage:</span> ${phoneId.mainFeatures.storage}</p>
             <p><span class="fw-bold">DisplaySize:</span> ${phoneId.mainFeatures.displaySize}</p>
             <p><span class="fw-bold">Memory:</span> ${phoneId.mainFeatures.memory}</p>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p><span class="fw-bold">Memory:</span> ${phoneId.mainFeatures.memory}</p>
+            <p><span class="fw-bold">Sensors:</span> ${phoneId.mainFeatures.sensors}</p>
+            <h6 class="text-center my-4 fw-bold">Others</h6>
+            <p><span class="fw-bold">Bluetooth:</span> ${phoneId.others.Bluetooth}</p>
+            <p><span class="fw-bold">WLAN:</span> ${phoneId.others.WLAN}</p>
+            <p><span class="fw-bold">GPS:</span> ${phoneId.others.GPS}</p>
+            <p><span class="fw-bold">NFC:</span> ${phoneId.others.NFC}</p>
+            <p><span class="fw-bold">Radio:</span> ${phoneId.others.Radio}</p>
+            <p><span class="fw-bold">USB:</span> ${phoneId.others.USB}</p>
         </div>
     </div>
     `;
