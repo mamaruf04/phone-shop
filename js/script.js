@@ -1,14 +1,20 @@
+// spinner
+const toogleSpinner = display => {
+    document.getElementById("spinner").style.display = display;
+}
 // take input value
 const searchDevice = () => {
     const searchField = document.getElementById('search-field');
     const UnknownSearchText = searchField.value;
     const searchText = UnknownSearchText.toLowerCase();
+    toogleSpinner('block');
     if(searchText === ''){
         const p = document.createElement('p');
         p.innerHTML = `<p class="text-white text-center bg-danger p-1 w-50 mx-auto rounded">please search your product name to display</p>`;
         const div = document.getElementById('error-message');
         div.textContent = "";
         div.appendChild(p);
+        toogleSpinner('none');
     }
     else{
         const div = document.getElementById('error-message');
@@ -21,7 +27,6 @@ const searchDevice = () => {
         .then(res => res.json())
         .then(data => displaySearchResult(data.data))
     }
-    
 }
 
 const displaySearchResult = devices => {
@@ -40,22 +45,22 @@ const displaySearchResult = devices => {
     // get search results
     const display20devices = devices.splice(0, 20);
     display20devices.forEach(device => {
-        // console.log(display20devices);
         const div = document.createElement('div');
         div.classList.add('col');
+        // spinner
         div.innerHTML = `
-            <div class="card text-center h-100">
+            <div class="card text-center h-100 rounded-3">
                 <img src="${device.image}" class="card-img-top w-75 mx-auto p-3" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${device.phone_name}</h5>
                   <h6>${device.brand}</h6>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
                 <button onclick="loadDeviceDetails('${device.slug}')" class="btn btn-outline-light bg-danger bg-gradient w-50 p-2 fs-5 rounded-pill mx-auto mb-4">Details</button>
             </div>
             `;
             searchResult.appendChild(div);
     });
+    toogleSpinner('none');
 }
 // load details data
 const loadDeviceDetails = deviceId => {
@@ -71,13 +76,12 @@ const loadDeviceDetails = deviceId => {
 // display details data
 const displayPhoneDetails = deviceId => {
     const deviceDetails = document.getElementById('phone-details');
-    console.log(deviceId);
     // previous data removed
     deviceDetails.textContent = "";
     const div = document.createElement('div');
     // display details html
     div.innerHTML = `
-    <div class="container my-4 border rounded p-2 lh-base">
+    <div class="container my-4 border rounded p-2 lh-base rounded-3" style="background-color: white;">
         <img src="${deviceId.image}" class="col-md-6 float-md-start mb-3 me-md-4 align-middle" style="width: 43%;" alt="...">
         <h5 class="fw-bold fs-2 text-center text-md-start text-lg-star">${deviceId.name}</h5>
         <h6 class="fw-bold fs-5 text-center text-md-start text-lg-star">${deviceId.brand}</h6>
