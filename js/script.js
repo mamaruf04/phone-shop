@@ -73,29 +73,26 @@ const displayPhoneDetails = deviceId => {
     // previous data removed
     deviceDetails.textContent = "";
     const div = document.createElement('div');
-    div.classList.add('card');
+    // div.classList.add('card');
     div.innerHTML = `
-    <div class="card">
-        <img src="${deviceId.image}" class="card-img-top w-50 mx-auto p-4" alt="...">
-        <div class="card-body">
-            <h5 class="card-title fw-bold text-center">${deviceId.name}</h5>
-            <h6 class="card-title text-center">${deviceId.brand}</h6>
-            <h6 class="card-title text-center"><span class="fw-bold">ReleaseDate: </span> ${deviceId.releaseDate ? deviceId.releaseDate : 'Relese date not decleared yet.'}</h6>
-            <h6 class="text-center my-4 fw-bold">MainFeatures</h6>
-            <p><span class="fw-bold">ChipSet:</span> ${deviceId.mainFeatures.chipSet ? deviceId.mainFeatures.chipSet : 'Details Not Found'}</p>
-            <p><span class="fw-bold">Storage:</span> ${deviceId.mainFeatures.storage}</p>
-            <p><span class="fw-bold">DisplaySize:</span> ${deviceId.mainFeatures.displaySize}</p>
-            <p><span class="fw-bold">Memory:</span> ${deviceId.mainFeatures.memory}</p>
-            <p><span class="fw-bold">Memory:</span> ${deviceId.mainFeatures.memory}</p>
-            <p><span class="fw-bold">Sensors:</span> ${deviceId.mainFeatures.sensors}</p>
-            <h6 class="text-center my-4 fw-bold">Others</h6>
-            <p><span class="fw-bold">Bluetooth:</span> ${deviceId.others.Bluetooth }</p>
-            <p><span class="fw-bold">WLAN:</span> ${deviceId.others.WLAN}</p>
-            <p><span class="fw-bold">GPS:</span> ${deviceId.others.GPS}</p>
-            <p><span class="fw-bold">NFC:</span> ${deviceId.others.NFC}</p>
-            <p><span class="fw-bold">Radio:</span> ${deviceId.others.Radio}</p>
-            <p><span class="fw-bold">USB:</span> ${deviceId.others.USB}</p>
-        </div>
+    <div class="container my-4 border rounded p-2 lh-base">
+        <img src="${deviceId.image}" class="col-md-6 float-md-start mb-3 me-md-4" style="width: 43%;" alt="...">
+        <h5 class="fw-bold fs-2 text-center text-md-start text-lg-star">${deviceId.name}</h5>
+        <h6 class="fw-bold fs-5 text-center text-md-start text-lg-star">${deviceId.brand}</h6>
+        <h6 class="text-center text-md-start text-lg-star"><span class="fw-bold">ReleaseDate: </span> <span class="fw-normal fst-italic">${deviceId.releaseDate ? deviceId.releaseDate : 'Relese date not decleared yet.'}</span></h6>
+        <h6 class="fs-5 text-center text-md-start text-lg-star fw-bold my-4 fst-italic text-success">MainFeatures</h6>
+        <p><span class="fw-bold">ChipSet:</span> ${deviceId.mainFeatures.chipSet ? deviceId.mainFeatures.chipSet : 'Details Not Found'}</p>
+        <p><span class="fw-bold">Storage:</span> ${deviceId.mainFeatures.storage}</p>
+        <p><span class="fw-bold">DisplaySize:</span> ${deviceId.mainFeatures.displaySize}</p>
+        <p><span class="fw-bold">Memory:</span> ${deviceId.mainFeatures.memory}</p>
+        <p><span class="fw-bold">Sensors:<br></span> ${deviceId.mainFeatures.sensors}</p>
+        <h6 class="fs-5 my-2 text-center text-md-start text-lg-star fw-bold fst-italic text-success">Others</h6>
+        <p><span class="fw-bold">Bluetooth:</span> ${deviceId.others.Bluetooth }</p>
+        <p><span class="fw-bold">WLAN:</span> ${deviceId.others.WLAN}</p>
+        <p><span class="fw-bold">GPS:</span> ${deviceId.others.GPS}</p>
+        <p><span class="fw-bold">NFC:</span> ${deviceId.others.NFC}</p>
+        <p><span class="fw-bold">Radio:</span> ${deviceId.others.Radio}</p>
+        <p><span class="fw-bold">USB:</span> ${deviceId.others.USB}</p>
     </div>
     `;
     deviceDetails.appendChild(div);
