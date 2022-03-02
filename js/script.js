@@ -51,14 +51,14 @@ const displaySearchResult = devices => {
                   <h6>${device.brand}</h6>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
-                <button onclick="loaddeviceDetails('${device.slug}')" class="btn btn-outline-light bg-danger w-25 mx-auto mb-4">Details</button>
+                <button onclick="loadDeviceDetails('${device.slug}')" class="btn btn-outline-light bg-danger bg-gradient w-50 p-2 fs-5 rounded-pill mx-auto mb-4">Details</button>
             </div>
             `;
             searchResult.appendChild(div);
     });
 }
 // load details data
-const loaddeviceDetails = deviceId => {
+const loadDeviceDetails = deviceId => {
     //remove all error message
     const div = document.getElementById('error-message');
     div.textContent = "";
@@ -75,6 +75,7 @@ const displayPhoneDetails = deviceId => {
     // previous data removed
     deviceDetails.textContent = "";
     const div = document.createElement('div');
+    // display details html
     div.innerHTML = `
     <div class="container my-4 border rounded p-2 lh-base">
         <img src="${deviceId.image}" class="col-md-6 float-md-start mb-3 me-md-4 align-middle" style="width: 43%;" alt="...">
